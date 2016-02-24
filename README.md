@@ -140,7 +140,7 @@ $ git submodule add https://github.com/Karumi/Alamofire-Result.git
 ```swift
 import Alamofire_Result
 
-Alamofire.request(.GET, "http://httpbin.org/get")
+Alamofire.request(.GET, "https://httpbin.org/get")
 ```
 
 ### Response Handling
@@ -303,7 +303,7 @@ enum ParameterEncoding {
 #### Manual Parameter Encoding of an NSURLRequest
 
 ```swift
-let URL = NSURL(string: "http://httpbin.org/get")!
+let URL = NSURL(string: "https://httpbin.org/get")!
 var request = NSMutableURLRequest(URL: URL)
 
 let parameters = ["foo": "bar"]
@@ -386,7 +386,7 @@ Alamofire_Result.upload(.POST, "http://httpbin.org/post", file: fileURL)
 ```swift
 Alamofire_Result.upload(
     .POST,
-    "http://httpbin.org/post",
+    "https://httpbin.org/post",
     multipartFormData: { multipartFormData in
         multipartFormData.appendBodyPart(fileURL: unicornImageURL, name: "unicorn")
         multipartFormData.appendBodyPart(fileURL: rainbowImageURL, name: "rainbow")
@@ -580,7 +580,7 @@ Alamofire_Result.request(.GET, "http://httpbin.org/get", parameters: ["foo": "ba
 let request = Alamofire_Result.request(.GET, "http://httpbin.org/ip")
 
 print(request)
-// GET http://httpbin.org/ip (200)
+// GET https://httpbin.org/ip (200)
 ```
 
 ### DebugPrintable
@@ -598,7 +598,7 @@ $ curl -i \
 	-H "User-Agent: Alamofire" \
 	-H "Accept-Encoding: Accept-Encoding: gzip;q=1.0,compress;q=0.5" \
 	-H "Accept-Language: en;q=1.0,fr;q=0.9,de;q=0.8,zh-Hans;q=0.7,zh-Hant;q=0.6,ja;q=0.5" \
-	"http://httpbin.org/get?foo=bar"
+	"https://httpbin.org/get?foo=bar"
 ```
 
 ---
@@ -881,7 +881,7 @@ Alamofire_Result.request(.GET, user) // http://example.com/users/mattt
 Types adopting the `URLRequestConvertible` protocol can be used to construct URL requests. `NSURLRequest` conforms to `URLRequestConvertible` by default, allowing it to be passed into `request`, `upload`, and `download` methods directly (this is the recommended way to specify custom HTTP body for individual requests):
 
 ```swift
-let URL = NSURL(string: "http://httpbin.org/post")!
+let URL = NSURL(string: "https://httpbin.org/post")!
 let mutableURLRequest = NSMutableURLRequest(URL: URL)
 mutableURLRequest.HTTPMethod = "POST"
 
